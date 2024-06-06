@@ -88,7 +88,7 @@ public class ExerciseTwoService {
 
         TalkIndex++;
 
-        for (; TalkIndex < totalTalkCount; TalkIndex++) { 
+        for (; TalkIndex < totalTalkCount; TalkIndex++) {
             if (sum240 >= trackTalks.get(TalkIndex).getMinutes()) {
                 sum240 = sum240 - trackTalks.get(TalkIndex).getMinutes();
                 sessionTime = sdf.format(cal.getTime()) + " " + trackTalks.get(TalkIndex).getTitle() + " " + trackTalks.get(TalkIndex).getMinutes() + "min";
