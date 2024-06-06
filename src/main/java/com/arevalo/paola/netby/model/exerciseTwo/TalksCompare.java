@@ -1,7 +1,5 @@
 package com.arevalo.paola.netby.model.exerciseTwo;
 
-import lombok.*;
-
 import java.util.Comparator;
 
 /**

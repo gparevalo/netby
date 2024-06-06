@@ -1,5 +1,7 @@
 package com.arevalo.paola.netby.service;
 
+import com.arevalo.paola.netby.model.exerciseThree.InputProcessor;
+import com.arevalo.paola.netby.model.exerciseThree.OutputProcessor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
@@ -15,7 +17,12 @@ public class ExerciseThreeService {
 
     public String solveExerciseThree(String inputData) {
 
-        return "OK";
+        String[] inputArr = inputData.split(",");
+        InputProcessor.processFile(inputArr);
+        InputProcessor.mapTokentoIntegerValue();
+        OutputProcessor.processReplyForQuestion();
+
+        return "ok";
     }
 
 }
