@@ -26,10 +26,8 @@ public class ExerciseTwoService {
     public String solveExerciseTwo(String inputData) {
 
         Conference conference = new Conference(inputData);
-        log.info(Functions.asString(conference) + "\n");
-
-        int startTalkIndex = 0;
         int numberOfTracks = conference.getCountTrack();
+        int startTalkIndex = 0;
 
         // Schedule the Talks into Tracks.
         for (int trackCount = 0; trackCount < numberOfTracks; trackCount++) {
@@ -37,7 +35,6 @@ public class ExerciseTwoService {
         }
 
         outputOfTalksIntoTracks(conference.getTrackTalks());
-
         return "OK";
     }
 
@@ -91,8 +88,7 @@ public class ExerciseTwoService {
 
         TalkIndex++;
 
-        for (; TalkIndex < totalTalkCount; TalkIndex++) {
-            // Get the combination of 180 and fill it
+        for (; TalkIndex < totalTalkCount; TalkIndex++) { 
             if (sum240 >= trackTalks.get(TalkIndex).getMinutes()) {
                 sum240 = sum240 - trackTalks.get(TalkIndex).getMinutes();
                 sessionTime = sdf.format(cal.getTime()) + " " + trackTalks.get(TalkIndex).getTitle() + " " + trackTalks.get(TalkIndex).getMinutes() + "min";
@@ -116,12 +112,6 @@ public class ExerciseTwoService {
         trackTalks.get(TalkIndex).setNetworkingFlag(true);
         sessionTime = "5:00 PM" + " " + "Networking Event";
         trackTalks.get(TalkIndex).setNetworkingTitle(sessionTime);
-
-        // TBD : Add rules to re-evaluate the Schedule of Talks into Tracks e.g. If on evaluation its found that on Track-1
-        // we have 30 free minutes and on Track-2 we have 45 free minutes, and one talk of 60 minutes need to schedule.
-        // We can shuffle 30 mins talks from Track-1 to Track-2 , and accommodate this 60 mins talk to track-1
-        // Only varieties of input will provide right sense.
-
         TalkIndex++;
         return TalkIndex;
 
